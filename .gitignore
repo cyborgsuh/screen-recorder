@@ -6,6 +6,8 @@ src-tauri/binaries/
 *.mp4
 *.webm
 *.gif
+# repo media (README demo etc.) is allowed
+!assets/*.gif
 .DS_Store
 
 # Local machine junk / secrets — never commit

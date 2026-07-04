@@ -14,6 +14,10 @@ manual keyframing. Then trim, add a background, and export to MP4 or GIF.
 ![Tauri](https://img.shields.io/badge/Tauri-2-24C8DB)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
+<img src="assets/demo.gif" width="820" alt="Halo automatically zooming and panning to follow the cursor" />
+
+<sub>— this demo was recorded and exported with Halo itself —</sub>
+
 </div>
 
 ---
