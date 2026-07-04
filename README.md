@@ -52,29 +52,34 @@ zoom is fully editable afterward on the timeline.
 | [Node.js](https://nodejs.org/) 18+ | frontend build (Vite) |
 | [Rust](https://rustup.rs/) (stable) | Tauri backend |
 | WebView2 | preinstalled on Windows 11; [download](https://developer.microsoft.com/microsoft-edge/webview2/) for Windows 10 |
-| **ffmpeg** | required for export & thumbnails — see below |
+| **ffmpeg** | fetched automatically on `npm install` — no manual step |
 
-### ffmpeg
+### ffmpeg (automatic)
 
-Halo shells out to a bundled `ffmpeg` for muxing mic audio, building GIFs, and
-generating thumbnails. It is **not** included in this repo. Download a static
-Windows build (e.g. from [gyan.dev](https://www.gyan.dev/ffmpeg/builds/)) and
-drop the executable here, renamed to include the target triple:
+Halo shells out to `ffmpeg` for muxing mic audio, building GIFs, and generating
+thumbnails. You don't need to install it manually: `npm install` runs a
+`postinstall` step ([`scripts/setup-ffmpeg.mjs`](scripts/setup-ffmpeg.mjs)) that
+copies a static build (via the [`ffmpeg-static`](https://www.npmjs.com/package/ffmpeg-static)
+package) into `src-tauri/binaries/` under the name Tauri's sidecar bundling
+expects. The binary is **not** committed to the repo — it's fetched per machine.
 
+If you ever need to re-run it by itself:
+
+```bash
+npm run setup:ffmpeg
 ```
-src-tauri/binaries/ffmpeg-x86_64-pc-windows-msvc.exe
-```
 
-(Screen recording itself works without ffmpeg, but export and thumbnails won't.)
+> ffmpeg is licensed under the GPL/LGPL. Halo invokes it as a separate
+> executable (not linked), so the app stays MIT; if you distribute a built
+> installer it bundles ffmpeg, so comply with ffmpeg's license when you ship.
 
 ## Getting started
 
 ```bash
 git clone https://github.com/cyborgsuh/halo.git
 cd halo
-npm install
+npm install             # also fetches ffmpeg automatically (postinstall)
 
-# add ffmpeg (see above), then:
 npm run tauri dev        # run the app in dev
 ```
 
