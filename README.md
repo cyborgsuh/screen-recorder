@@ -128,9 +128,9 @@ npm test
 ## Support
 
 Halo is free and MIT-licensed. If it's useful to you and you'd like to support
-development, sponsorship is welcome (never required):
+development, it's welcome (never required):
 
-**[❤️ Sponsor on GitHub](https://github.com/sponsors/cyborgsuh)**
+**[❤️ Sponsor on GitHub](https://github.com/sponsors/cyborgsuh)** &nbsp;·&nbsp; **[☕ Buy Me a Coffee](https://buymeacoffee.com/cyborgsuh)**
 
 ## License
 
