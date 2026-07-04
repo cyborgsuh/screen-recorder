@@ -132,6 +132,48 @@ timeline math) has assert-based tests:
 npm test
 ```
 
+## Contributing
+
+Halo is young and **not perfect** — bug reports and PRs are very welcome.
+
+- **Found a bug?** [Open an issue](https://github.com/cyborgsuh/halo/issues) with
+  what you did, what happened, and what you expected. A short screen recording
+  (Halo can record itself!) makes bugs 10× easier to fix.
+- **Want to fix or build something?** Fork → branch → PR against `main`. For big
+  changes, open an issue first so we agree on the direction before you sink time in.
+
+Before opening a PR:
+
+```bash
+npm test        # pure-logic tests must pass
+npm run build   # tsc must be clean
+```
+
+If you touch the motion math (`src/lib/autozoom.ts`, `src/lib/timeline.ts`),
+add or update a test — that's what keeps the zoom feel from regressing.
+
+### Where things live
+
+| Area | Path |
+|---|---|
+| Auto-zoom regions (clicks → zoom blocks) | `src/lib/autozoom.ts` |
+| Pan-follow, zoom ramps, playback clock | `src/lib/timeline.ts` |
+| GPU compositor (preview + export) | `src/lib/renderer.ts` |
+| Export pipeline (WebCodecs + ffmpeg mux) | `src/lib/export.ts` |
+| Screen capture / cursor hook / sessions (Rust) | `src-tauri/src/` |
+| UI views | `src/components/` |
+
+### Help wanted
+
+Good places to jump in:
+
+- Pause/resume while recording
+- Window-level capture (currently monitor-only)
+- Settings screen (countdown length, save location, defaults)
+- Global start/stop hotkey
+- Microphone device picker
+- macOS / Linux capture backends (the big one)
+
 ## License
 
 [MIT](LICENSE) © cyborgsuh — free for personal and commercial use.
